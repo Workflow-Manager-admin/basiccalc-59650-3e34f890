@@ -1,0 +1,196 @@
+:root {
+  --primary: #4CAF50;
+  --secondary: #FFC107;
+  --accent: #2196F3;
+  --bc-bg: #fcfcfc;
+  --bc-display-bg: #f0f0f0;
+  --bc-display-text: #212121;
+  --bc-btn-num-bg: #ffffff;
+  --bc-btn-num-text: #212121;
+  --bc-btn-primary-bg: var(--primary);
+  --bc-btn-primary-text: #fff;
+  --bc-btn-secondary-bg: var(--secondary);
+  --bc-btn-secondary-text: #fff;
+  --bc-btn-accent-bg: var(--accent);
+  --bc-btn-accent-text: #fff;
+  --bc-btn-shadow: 1px 1px 4px #0001;
+  --bc-footer-bg: #f9f9f9;
+  --bc-footer-text: #b1b1b1;
+}
+
+body {
+  background: var(--bc-bg);
+  color: var(--bc-display-text);
+  font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Begin: BasicCalc Layout and Components */
+
+.basiccalc-app {
+  min-height: 100vh;
+  background: var(--bc-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header & Footer */
+.bc-header {
+  padding: 1.1rem 0 0.6rem 0;
+  background: transparent;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  border-bottom: 2px solid var(--primary);
+}
+
+.bc-logo {
+  font-family: 'Roboto', 'Arial', sans-serif;
+}
+
+.bc-footer {
+  margin-top: auto;
+  padding: 0.8rem 0 1.2rem 0;
+  background: var(--bc-footer-bg);
+  text-align: center;
+  font-size: 1rem;
+  color: var(--bc-footer-text);
+}
+
+/* Calculator Main */
+.bc-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3vw;
+  padding-bottom: 3vw;
+}
+
+/* Calculator Container */
+.bc-calculator-container {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 32px #0002, 0 1.5px 5px #0A8D547F;
+  padding: 2.3rem 1.5rem 1.8rem 1.5rem;
+  max-width: 360px;
+  width: 95vw;
+  min-width: 265px;
+  display: flex;
+  flex-direction: column;
+}
+
+.bc-display {
+  background: var(--bc-display-bg);
+  color: var(--bc-display-text);
+  font-size: 2.3rem;
+  border-radius: 10px;
+  min-height: 48px;
+  padding: 0.8rem 0.85rem;
+  margin-bottom: 1.25rem;
+  text-align: right;
+  box-shadow: var(--bc-btn-shadow);
+  overflow-x: auto;
+  white-space: nowrap;
+  letter-spacing: 1px;
+  font-family: 'Menlo', 'Consolas', 'Roboto Mono', 'monospace', sans-serif;
+  word-break: break-all;
+}
+
+.bc-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.7rem;
+}
+
+.bc-btn {
+  font-size: 1.25rem;
+  padding: 1.1rem 0.7rem;
+  margin: 0;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: var(--bc-btn-shadow);
+  transition: background 0.18s, color 0.13s, transform 0.12s;
+  outline: none;
+  user-select: none;
+  min-width: 0;
+}
+
+.bc-btn-number,
+.bc-btn-number:focus {
+  background: var(--bc-btn-num-bg);
+  color: var(--bc-btn-num-text);
+}
+
+.bc-btn-number:active {
+  background: #eaeaea;
+}
+
+.bc-btn-primary {
+  background: var(--bc-btn-primary-bg);
+  color: var(--bc-btn-primary-text);
+}
+.bc-btn-primary:hover,
+.bc-btn-primary:focus {
+  background: #379740;
+}
+.bc-btn-primary:active {
+  background: #37812f;
+}
+
+.bc-btn-secondary {
+  background: var(--bc-btn-secondary-bg);
+  color: var(--bc-btn-secondary-text);
+}
+.bc-btn-secondary:hover,
+.bc-btn-secondary:focus {
+  background: #ebbb06;
+  color: #fff;
+}
+.bc-btn-secondary:active {
+  background: #e0aa06;
+}
+
+.bc-btn-accent {
+  background: var(--bc-btn-accent-bg);
+  color: var(--bc-btn-accent-text);
+}
+.bc-btn-accent:hover,
+.bc-btn-accent:focus {
+  background: #1976d2;
+}
+.bc-btn-accent:active {
+  background: #1963ba;
+}
+
+/* Fix 0 key to span two columns */
+.bc-btn[style*="grid-column: span 2"] {
+  grid-column: span 2;
+}
+
+/* Responsive arrangement */
+@media (max-width: 600px) {
+  .bc-calculator-container {
+    padding: 1.5rem 0.5rem 1.2rem 0.5rem;
+    max-width: 98vw;
+    min-width: 0;
+  }
+  .bc-display {
+    font-size: 1.34rem;
+    padding: 0.65rem 0.6rem;
+  }
+  .bc-btn {
+    font-size: 1rem;
+    padding: 1rem 0.3rem;
+  }
+}
+
+/* Hide legacy/template styles for new layout */
+.app, .navbar, .logo, .logo-symbol, .container, .hero, .subtitle, .title, .description, .btn, .btn-large {
+  display: none !important;
+}
